@@ -39,6 +39,54 @@ public class Country {
 		this.populationSize = populationSize;
 		this.grossDomesticProduct = grossDomesticProduct;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getCountryName() {
+		return countryName;
+	}
+
+	public void setCountryName(String countryName) {
+		this.countryName = countryName;
+	}
+
+	public String getCapitalCity() {
+		return capitalCity;
+	}
+
+	public void setCapitalCity(String capitalCity) {
+		this.capitalCity = capitalCity;
+	}
+
+	public String getOfficialLanguage() {
+		return officialLanguage;
+	}
+
+	public void setOfficialLanguage(String officialLanguage) {
+		this.officialLanguage = officialLanguage;
+	}
+
+	public int getPopulationSize() {
+		return populationSize;
+	}
+
+	public void setPopulationSize(int populationSize) {
+		this.populationSize = populationSize;
+	}
+
+	public String getGrossDomesticProduct() {
+		return grossDomesticProduct;
+	}
+
+	public void setGrossDomesticProduct(String grossDomesticProduct) {
+		this.grossDomesticProduct = grossDomesticProduct;
+	}
 				
 	
 	
