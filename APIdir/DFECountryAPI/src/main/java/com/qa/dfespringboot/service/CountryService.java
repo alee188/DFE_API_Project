@@ -29,11 +29,13 @@ public class CountryService {
 		existing.setPopulationSize(Country.getPopulationsize());
 		existing.setGrossDomesticProduct(Country.getGrossDomesticProduct());
 		// save entry back into the Database
-		return this.repo.saveAndFlush(existing);
-		
-		
-		
+		return this.repo.saveAndFlush(existing);	
 	}
-	
+// Delete: deletes entries and returns true id deleted
+	public boolean delete (long id) {
+		this.repo.deleteById(id);
+		
+		return !this.repo.existsById(id);
+	}
 	
 }
