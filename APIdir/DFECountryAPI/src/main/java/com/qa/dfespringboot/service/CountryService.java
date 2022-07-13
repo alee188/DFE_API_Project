@@ -1,5 +1,7 @@
 package com.qa.dfespringboot.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.qa.dfespringboot.entities.Country;
@@ -10,8 +12,10 @@ public class CountryService {
 
 // create: add new country
 	public Country create (Country country) {
-		return this.repo.saveAndFlush(country);
-		
+		return this.repo.saveAndFlush(country);	
 	}
-	
+// read: return whole list
+	public List <Country> getALL(){
+		return this.repo.findAll();
+	} 
 }
