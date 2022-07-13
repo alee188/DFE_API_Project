@@ -18,4 +18,22 @@ public class CountryService {
 	public List <Country> getALL(){
 		return this.repo.findAll();
 	} 
+// Update: updates entries
+	public Country update(long id, Country country) {
+		// get existing entry
+		Country existing = this.repo.findById(id).get();
+		//change the existing entry, using our new customer object above
+		existing.setCountryName(Country.getCountryName());
+		existing.setCapitalCity(Country.getCapitalCity());
+		existing.setOfficialLanguage(Country.getOfficalLanguage());
+		existing.setPopulationSize(Country.getPopulationsize());
+		existing.setGrossDomesticProduct(Country.getGrossDomesticProduct());
+		// save entry back into the Database
+		return this.repo.saveAndFlush(existing);
+		
+		
+		
+	}
+	
+	
 }
