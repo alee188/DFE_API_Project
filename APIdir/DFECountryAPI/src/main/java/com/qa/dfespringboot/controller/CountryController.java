@@ -12,12 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.dfespringboot.entities.Country;
+import com.qa.dfespringboot.service.CountryService;
 
 // Handle incoming HTTP requests and send responses
 @RestController
 @RequestMapping ("/country")// adds a prefix to the request URLs
 public class CountryController {
-
+// Dependency injection
+	private CountryService service;
+	
+	public CountryConntroller(CountryService service) {
+		this.service = service;
+	}
 // Create functionality
 	@PostMapping("/create")
 	public Country create(@RequestBody Country country) {
