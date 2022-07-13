@@ -21,7 +21,7 @@ public class CountryController {
 // Dependency injection
 	private CountryService service;
 	
-	public CountryConntroller(CountryService service) {
+	public CountryController(CountryService service) {
 		this.service = service;
 	}
 // Create functionality
