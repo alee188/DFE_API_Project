@@ -9,7 +9,7 @@ import javax.persistence.Id;
 @Entity
 public class Country {
 	@Id
-	@GeneratedValue(strategy = GenerationType. Identity)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column(name = "countryname", nullable = false)
@@ -19,13 +19,28 @@ public class Country {
 	private String capitalCity;
 	
 	@Column(nullable = false)
-	private String officalLanguage;
+	private String officialLanguage;
 	
 	@Column(nullable = false)
 	private int populationSize;
 	
 	@Column(nullable = false) 
 	private String grossDomesticProduct;
+	
+	// default constructor
+	public Country() {}
+	
+	public Country(String countryName, String capitalCity, String officialLanguage, int populationSize, String grossDomesticProduct) {
+		super();
+		this.id =id;
+		this.countryName = countryName;
+		this.capitalCity = capitalCity;
+		this.officialLanguage = officialLanguage;
+		this.populationSize = populationSize;
+		this.grossDomesticProduct = grossDomesticProduct;
+	}
+				
+	
 	
 	
 	
