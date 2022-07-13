@@ -10,6 +10,10 @@ import com.qa.dfespringboot.entities.Country;
 public class CountryService {
 //Service components are used to store the main business logic of a Spring Boot application 
 
+	// repository dependency injection
+	public CountryService (CountryRepo repo) {
+		this.repo = repo;
+	}
 // create: add new country
 	public Country create (Country country) {
 		return this.repo.saveAndFlush(country);	
@@ -31,7 +35,7 @@ public class CountryService {
 		// save entry back into the Database
 		return this.repo.saveAndFlush(existing);	
 	}
-// Delete: deletes entries and returns true id deleted
+// Delete: deletes entries and returns true if deleted
 	public boolean delete (long id) {
 		this.repo.deleteById(id);
 		
