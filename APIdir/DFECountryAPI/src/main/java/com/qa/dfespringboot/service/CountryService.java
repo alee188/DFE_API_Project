@@ -10,7 +10,10 @@ import com.qa.dfespringboot.repo.CountryRepo;
 @Service
 public class CountryService {
 //Service components are used to store the main business logic of a Spring Boot application 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 	private CountryRepo repo;
 	// repository dependency injection
 	public CountryService (CountryRepo repo) {
