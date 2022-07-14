@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.qa.dfespringboot.entities.Country;
+import com.qa.dfespringboot.repo.CountryRepo;
 
 @Service
 public class CountryService {
 //Service components are used to store the main business logic of a Spring Boot application 
 
+	private CountryRepo repo;
 	// repository dependency injection
 	public CountryService (CountryRepo repo) {
 		this.repo = repo;
@@ -27,11 +29,11 @@ public class CountryService {
 		// get existing entry
 		Country existing = this.repo.findById(id).get();
 		//change the existing entry, using our new customer object above
-		existing.setCountryName(Country.getCountryName());
-		existing.setCapitalCity(Country.getCapitalCity());
-		existing.setOfficialLanguage(Country.getOfficalLanguage());
-		existing.setPopulationSize(Country.getPopulationsize());
-		existing.setGrossDomesticProduct(Country.getGrossDomesticProduct());
+		existing.setCountryName(country.getCountryName());
+		existing.setCapitalCity(country.getCapitalCity());
+		existing.setOfficialLanguage(country.getOfficialLanguage());
+		existing.setPopulationSize(country.getPopulationSize());
+		existing.setGrossDomesticProduct(country.getGrossDomesticProduct());
 		// save entry back into the Database
 		return this.repo.saveAndFlush(existing);	
 	}
