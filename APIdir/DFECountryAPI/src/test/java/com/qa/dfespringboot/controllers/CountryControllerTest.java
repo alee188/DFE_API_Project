@@ -3,6 +3,7 @@ package com.qa.dfespringboot.controllers;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 import java.util.ArrayList;
@@ -61,9 +62,22 @@ public class CountryControllerTest {
 		String outputAsJSON = mapper.writeValueAsString(output);
 		
 		mvc.perform(get("/country/readALL"))
-			.contentType(MediaType.APPLICATION_JSON))
+			.contentType(MediaType.APPLICATION_JSON)
 			.andExpect(content().json(outputAsJSON));
 	}
 	
+	// Update test
+	@Test
+	public void updateTest() throws Exception{
+		Country entry = new Country("USA", "Washington D.C.", "English", 331000000, "25.3 trillion dollars");
+		Country result = new Country (1L, "USA", "Washington D.C.", "English", 331000000, "25.3 trillion dollars");
+		String entryAsJSON = this.mapper.writeValueAsString(entry);
+		String resultAsJSON = this.mapper.writeValueAsString(result);
+		
+		mvc.perform(put("/country/update/1")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(entryAsJSON))
+				.andExpect(content().string("true"));
+	}
 	
 }
