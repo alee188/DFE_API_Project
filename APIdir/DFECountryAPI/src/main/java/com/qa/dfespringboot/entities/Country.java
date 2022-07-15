@@ -32,7 +32,17 @@ public class Country {
 	// default constructor
 	public Country() {}
 	
+	// no id constructor- used for inserting
 	public Country(String countryName, String capitalCity, String officialLanguage, int populationSize, String grossDomesticProduct) {
+		super();
+		this.countryName = countryName;
+		this.capitalCity = capitalCity;
+		this.officialLanguage = officialLanguage;
+		this.populationSize = populationSize;
+		this.grossDomesticProduct = grossDomesticProduct;
+	}
+	//all args constructor used for reading
+	public Country(long id, String countryName, String capitalCity, String officialLanguage, int populationSize, String grossDomesticProduct) {
 		super();
 		this.id =id;
 		this.countryName = countryName;

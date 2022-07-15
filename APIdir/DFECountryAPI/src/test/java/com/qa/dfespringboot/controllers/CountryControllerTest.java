@@ -1,6 +1,6 @@
 package com.qa.dfespringboot.controllers;
 
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -17,6 +17,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.dfespringboot.entities.Country;
@@ -61,8 +62,8 @@ public class CountryControllerTest {
 		//convert expected output to JSON
 		String outputAsJSON = mapper.writeValueAsString(output);
 		
-		mvc.perform(get("/country/readALL"))
-			.contentType(MediaType.APPLICATION_JSON)
+		mvc.perform(get("/country/getALL")
+			.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(content().json(outputAsJSON));
 	}
 	
@@ -77,7 +78,14 @@ public class CountryControllerTest {
 		mvc.perform(put("/country/update/1")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(entryAsJSON))
-				.andExpect(content().string("true"));
+				.andExpect(content().json(resultAsJSON));
 	}
 	
+	//delete test
+	@Test
+	public void deleteTest() throws Exception{
+		mvc.perform(delete("/country/delete/1")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(content().string("true"));
+	}
 }

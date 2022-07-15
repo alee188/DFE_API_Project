@@ -9,5 +9,5 @@ import com.qa.dfespringboot.entities.Country;
 
 @Repository
 public interface CountryRepo extends JpaRepository <Country, Long>{
-	List<Country> findCountrybyCountryName(String countryName);
+	List<Country> findCountryByCountryName(String countryname);
 }
