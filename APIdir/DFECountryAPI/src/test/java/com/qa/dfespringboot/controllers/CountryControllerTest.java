@@ -46,7 +46,7 @@ public class CountryControllerTest {
 		Country result = new Country(2L, "USA", "Washington D.C.", "English", 331000000, "25.3 trillion dollars");
 		String resultAsJSON = mapper.writeValueAsString(result);
 		
-		mvc.perform(post("/customer/create")
+		mvc.perform(post("/country/create")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(entryAsJSON))
 				.andExpect(content().json(resultAsJSON));

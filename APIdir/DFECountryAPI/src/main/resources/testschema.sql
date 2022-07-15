@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS `Country`;
 
 CREATE TABLE `Country` (
 	`id` BIGINT AUTO_INCREMENT,
-	`countryname` VARCHAR(255) NOT NULL, 
+	`country_name` VARCHAR(255) NOT NULL, 
 	`capital_city` VARCHAR(255) NOT NULL,
 	`official_language` VARCHAR(255) NOT NULL,
 	`population_size` INT NOT NULL,

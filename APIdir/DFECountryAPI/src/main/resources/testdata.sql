@@ -1,1 +1,1 @@
-INSERT INTO `country`(`countryname`, `capital_city`,`official_language`, `population_size`,`gross_domestic_product`) VALUES (`United Kingdom`, `London`, `English`, `68000000`, `3.7 trillion dollars`);
+INSERT INTO `Country`(`country_name`, `capital_city`,`official_language`, `population_size`,`gross_domestic_product`) VALUES ('United Kingdom', 'London', 'English', 68000000, '3.7 trillion dollars');
