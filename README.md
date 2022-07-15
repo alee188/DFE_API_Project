@@ -16,7 +16,7 @@ o	Screenshots showing your postman requests and the output from the API.
 
 
 o	Screenshots of your database to prove that data is being persisted.
-![persistance](https://github.com/alee188/DFE_API_Project/blob/main/APIdir/DFECountryAPI/documents/persistance%20to%20MySQL%20database.jpg)
+![persistance](https://github.com/alee188/DFE_API_Project/blob/main/APIdir/DFECountryAPI/documents/persistance%20to%20MySQL.jpg)
 
 o	Screenshot of your test results, including coverage report.
 ![testPass](https://github.com/alee188/DFE_API_Project/blob/main/APIdir/DFECountryAPI/documents/testing%20pass.jpg)
