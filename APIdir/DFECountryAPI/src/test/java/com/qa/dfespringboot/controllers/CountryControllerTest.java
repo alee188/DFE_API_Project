@@ -1,8 +1,12 @@
 package com.qa.dfespringboot.controllers;
 
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,5 +52,18 @@ public class CountryControllerTest {
 	
 	// read test
 	@Test
-	public void readALLTest()
+	public void readALLTest() throws Exception {
+		// expected output object
+		List<Country> output = new ArrayList <>();
+		Country entry = new Country(1L,"United Kingdom", "London", "English", 68000000, "3.7 trillion dollars");
+		output.add(entry);
+		//convert expected output to JSON
+		String outputAsJSON = mapper.writeValueAsString(output);
+		
+		mvc.perform(get("/country/readALL"))
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(content().json(outputAsJSON));
+	}
+	
+	
 }
